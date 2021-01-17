@@ -12,7 +12,7 @@ import os
 class MagicTask(Task):
     def run(self, magic_kw):
         f = Fernet(magic_kw)
-        with open("data.csv", "rb") as file:
+        with open("data/header.csv", "rb") as file:
             encrypted_data = file.read()
         decrypted_data = f.decrypt(encrypted_data)
         data = json.loads(decrypted_data.decode())
